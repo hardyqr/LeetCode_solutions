@@ -3,7 +3,7 @@
 
 import csv
 
-csvfile = file('csv_test.csv', 'wb')
+csvfile = open('csv_test.csv', 'wb')
 writer = csv.writer(csvfile)
 writer.writerow(['姓名', '年龄', '电话'])
 
@@ -24,10 +24,10 @@ csvfile.close()
 
 import csv
 
-csvfile = file('csv_test.csv', 'rb')
+csvfile = open('csv_test.csv', 'rb')
 reader = csv.reader(csvfile)
 
 for line in reader:
     print line
 
-csvfile.close() 
+csvfile.close()
