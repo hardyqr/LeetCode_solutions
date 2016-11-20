@@ -1,21 +1,16 @@
+import re
 class Solution(object):
     def isPalindrome(self, s):
-        """
-        :type s: str
-        :rt////////////////////////////////////////ype: bool
-        """
-        s='shit'
-        s=s.repalce(' ','')
-     
-
-        delset=s.punctuation
-        s=line.translate(None,delset)
+        r='[ ’!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~]+'
+        s=re.sub(r,'',s) 
+        s=s.lower()
         length=len(s)
-        left=s[length/2:]
-        right=s[:-length/2][::-1]
-        print(left,right)
-        if left==right:
-            return True
-        else:
-            return False
-        isPalindrome(shit)
+        if(int(length//2)*2==length):
+            left=s[0:length//2]
+            right=s[length//2:][::-1]             
+        if(int(length//2)*2!=length):
+            length=length-1
+            left=s[0:length//2]
+            right=s[length//2+1:][::-1] 
+        if left==right:return True
+        else:return False
