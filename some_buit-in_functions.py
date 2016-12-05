@@ -32,3 +32,12 @@ print (isinstance(C, str))
 # callable
 # return True is if an object is callable
 # return False if an object isn't callable
+
+
+# 12/5/2016
+
+# enumerate
+# return both index and value
+layers = ('conv1_1', 'relu1_1', 'conv1_2', 'relu1_2', 'pool1')
+for a,b in enumerate(layers):
+    print(a,b)
