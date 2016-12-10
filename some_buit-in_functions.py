@@ -41,3 +41,12 @@ print (isinstance(C, str))
 layers = ('conv1_1', 'relu1_1', 'conv1_2', 'relu1_2', 'pool1')
 for a,b in enumerate(layers):
     print(a,b)
+
+
+# 12/11/2016
+
+# zip
+a=[1,2,3]
+b=[4,5,6]
+ab=[a,b]
+# return [(1,4),(2,5),(3,6)]
