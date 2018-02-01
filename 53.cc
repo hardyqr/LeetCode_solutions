@@ -2,11 +2,14 @@
 // Jan. 11, 2018
 
 
+/* Divide and Conquer  - O(nlogn)  */
+/*
 #include <vector>
 #include <iostream>
 #include <cmath>
 #include <climits>
 using namespace std;
+
 
 int max3(int x, int y, int z){
     if(x>=std::max(y,z)) {
@@ -20,7 +23,6 @@ int max3(int x, int y, int z){
     }
 }
 
-/* Divide and Conquer*/
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
@@ -31,25 +33,41 @@ public:
 		vector<int> sub_right(nums.begin()+floor(length/2),nums.end());
         int m1 = maxSubArray(sub_left);
         int m2 = maxSubArray(sub_right);
-   	int len=sub_right.size(), c=0,ml=INT_MIN,mr=INT_MIN;
+   	    int len=sub_right.size(), c=0,ml=INT_MIN,mr=INT_MIN;
     	for(int i=0; i<len;i++){
        		c+=sub_right[i];
-        	ml=std::max(c,ml);
+        	ml=max(c,ml);
     	}
 		len=sub_left.size();
 		c=0;
     	for(int i=len-1; i>=0;i--){
         	c+=sub_left[i];
-        	mr=std::max(c,mr);
+        	mr=max(c,mr);
     	}
         int m3 = ml+mr;
         return max3(m1,m2,m3);
     }
 };
+*/
 
-int main(){
-	//vector<int> v={-3,4,-1,2};
-	vector<int> v={-2,1,-3,4,-1,2,1,-5,4};
-	Solution sol;
-	cout << sol.maxSubArray(v) <<endl;
-}
+/* Greedy  - O(n), Feb 1st, 2018, DP */
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int sum = nums[0];
+        int maxsum = nums[0];
+        int count = 0;
+        for (auto num: nums) {
+            if (count != 0) {
+                sum = sum<=0 ? num : sum+num;
+                maxsum = std::max(maxsum,sum);
+            }
+            count ++;
+        }
+        return maxsum;
+    }
+};
+    
+    
+    
+    
