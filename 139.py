@@ -1,6 +1,6 @@
 # Feb 22, 2018 @DP
 
-
+''' exceed time limit '''
 def wordBreak(s, wordDict):
     """
     :type s: str
