@@ -22,7 +22,6 @@ class Solution(object):
 		result=max(results)
 		return result
 	# maxProduct(object,[123,56,2,8,-1,3,-4,66])
-'''
 
 def e_m(l):
 	if len(l)==0:return 0
@@ -74,3 +73,26 @@ class Solution(object):
 	#maxProduct(object,[123,56,2,8,-1,3,-4,66,-9,22,55])
 	maxProduct(object,[-2])
 	maxProduct(object,[0])
+'''
+
+''' DP '''
+''' Feb 23, 2018 @DP '''
+class Solution:
+    def maxProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        n = len(nums)
+        # suffix product
+        Dmax = [None] * n
+        Dmin = [None] * n 
+        Dmax[0],Dmin[0] = nums[0],nums[0]
+        for i in range(1,n):
+          if (nums[i] > 0):
+            Dmax[i] = max(nums[i], Dmax[i-1]*nums[i])
+            Dmin[i] = min(nums[i], Dmin[i-1]*nums[i])
+          else:
+            Dmax[i] = max(nums[i], Dmin[i-1]*nums[i])
+            Dmin[i] = min(nums[i], Dmax[i-1]*nums[i])
+        return max(Dmax)
