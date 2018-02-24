@@ -1,6 +1,7 @@
 # Feb 22, 2018 @DP
 
 ''' exceed time limit '''
+'''
 def wordBreak(s, wordDict):
     """
     :type s: str
@@ -33,4 +34,27 @@ print(wordBreak("wtfisgoingon",d1))
 print(wordBreak("a",d2))
 print(wordBreak("aaaaaaa",d3))
 print(wordBreak("leetcode",d4))
+'''
 
+''' modified '''
+''' Feb 23, 2018 @DP '''
+
+class Solution:
+  def wordBreak(self, s, wordDict):
+    """
+    :type s: str
+    :type wordDict: List[str]
+    :rtype: bool
+    """
+    n = len(s) 
+    D = [False] * (n+1)
+    for i in range(0,n+1):
+        subs = s[0:i]
+        if (subs in wordDict):
+            D[i] = True
+        # else
+        for j in range(0,i):
+            if (D[j] and (s[j:i] in wordDict)):
+                D[i] = True
+                break
+    return D[-1]
