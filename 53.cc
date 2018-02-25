@@ -50,7 +50,7 @@ public:
 };
 */
 
-/* Greedy  - O(n), Feb 1st, 2018, DP */
+/* Greedy  - O(n), Feb 1st, 2018, @DP */
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
@@ -67,7 +67,3 @@ public:
         return maxsum;
     }
 };
-    
-    
-    
-    
